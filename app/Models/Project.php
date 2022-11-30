@@ -10,4 +10,8 @@ class Project extends Model
     use HasFactory;
     protected $table = 'projects';
     protected $guarded = [];
+
+    public function groups() {
+        return $this->belongsToMany(Group::class, 'group_project');
+    }
 }

@@ -11,4 +11,11 @@ class Group extends Model
     protected $table = 'groups';
     protected $guarded = [];
 
+    public function projects() {
+        return $this->belongsToMany(Project::class, 'group_project');
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class, 'group_user');
+    }
 }

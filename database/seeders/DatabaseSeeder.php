@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(30)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Test User',
@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Customer::factory(30)->create();
         \App\Models\Project::factory(30)->create();
+        \App\Models\Group::factory(30)->create();
+        \App\Models\GroupUser::factory(30)->create();
+        \App\Models\GroupProject::factory(30)->create();
+
     }
 }

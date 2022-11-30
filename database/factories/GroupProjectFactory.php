@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\GroupUser>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\GroupProject>
  */
-class GroupUserFactory extends Factory
+class GroupProjectFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class GroupUserFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, 30),
-            'group_id' => $this->faker->numberBetween(1, 30)
+            'group_id' => $this->faker->numberBetween(1, 30),
+            'project_id' => $this->faker->numberBetween(1, 30)
         ];
     }
 }

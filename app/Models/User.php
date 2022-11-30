@@ -42,7 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function projects() {
-        return $this->belongsToMany('App\Models\Project', 'group_project', 'group_id', 'project_id');
+    public function groups() {
+        return $this->belongsToMany(Group::class, 'group_user');
+    }
+
+    public function customer() {
+        return $this->belongsTo(Customer::class, 'user_id');
     }
 }
