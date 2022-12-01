@@ -46,8 +46,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $project = Project::findOrFail($project);
-
+        $this->authorize('view', $project);
+        return view('projects.show', compact('project'));
     }
 
     /**

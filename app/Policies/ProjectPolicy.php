@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class ProjectPolicy
 {
@@ -30,7 +31,12 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project)
     {
-        //
+        foreach($project->groups as $group) {
+            if ($user->groups->contains($group)) {
+                return Response::allow();
+            }
+        }
+        return Response::deny('You are not a member of this project.');
     }
 
     /**
