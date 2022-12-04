@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProjectController extends Controller
 {
@@ -59,6 +60,13 @@ class ProjectController extends Controller
             'customer_id' => $request->customer_id ?? $customer->id,
             'notes' => $request->notes
         ]);
+
+        if($request->hasFile('files')) {
+            foreach($request->file('files') as $file) {
+                $project->addMedia($file)->usingFileName(\Str::random(20) . '' . $project->id . '.' . $file->getClientOriginalExtension())->toMediaCollection('project_attachments');
+            }
+        }
+
         return redirect()->route('projects.index')->with('message', 'Project succesvol aangemaakt.');
 
     }
@@ -107,5 +115,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    public function downloadMedia($id) {
+        $media = Media::find($id);
+        return response()->download($media->getPath(), $media->file_name);
     }
 }
