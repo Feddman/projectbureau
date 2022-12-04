@@ -8,8 +8,8 @@
             </div>
 
             <div class="text-group mb-8">
-                <p class="text-lg text-gray-400 font-bold">Categorie</p>
-                <p>Digitale werkplaats project</p>
+                <p class="text-lg text-gray-400 font-bold">Type</p>
+                <p>{{$project->type}}</p>
             </div>
 
              <div class="text-group mb-8">
@@ -24,7 +24,7 @@
 
               <div class="text-group mb-8">
                 <p class="text-lg text-gray-400 font-bold">Info voor projectgroepen <small><i>(van docententeam)</i></small></p>
-                <p>{{$project->description}}</p>
+                <p>{{$project->info_docent}}</p>
             </div>
 
              <div class="text-group mb-8">
@@ -61,15 +61,15 @@
             <h4 class="text-2xl font-bold mb-4">Contactpersoon Info</h4>
             <div class="text-group mb-8">
                 <p class="text-lg text-gray-400 font-bold">Naam</p>
-                <p>{{$project->customer->name}}</p>
+                <p>{{$project->customer->contact_name}}</p>
             </div>
             <div class="text-group mb-8">
                 <p class="text-lg text-gray-400 font-bold">Email</p>
-                <p>{{$project->customer->email}}</p>
+                <p>{{$project->customer->contact_email}}</p>
             </div>
             <div class="text-group mb-8">
                 <p class="text-lg text-gray-400 font-bold">Telefoon</p>
-                <p>{{$project->customer->phone}}</p>
+                <p>{{$project->customer->contact_phone}}</p>
             </div>
         </div>
     </div>

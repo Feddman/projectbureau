@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->references('id')->on('customers');
+            $table->string('type')->nullable();
             $table->string('name');
             $table->string('description');
+            $table->string('info_docent')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->enum('status', ['active', 'inactive']);

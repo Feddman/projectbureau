@@ -17,10 +17,7 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'user_id' => $this->faker->numberBetween(1, 10),
-            'phone' => $this->faker->phoneNumber,
+
             'address' => $this->faker->address,
             'city' => $this->faker->city,
             'state' => $this->faker->state,

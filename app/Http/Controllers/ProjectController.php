@@ -25,7 +25,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $customers = \App\Models\Customer::all();
+        return view('projects.create', [
+            'customers' => $customers
+        ]);
     }
 
     /**
@@ -36,7 +39,28 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!$request->customer_id) {
+            if(isset($request->contact_name)) {
+                $customer = \App\Models\Customer::create([
+                    'contact_name' => $request->contact_name,
+                    'contact_email' => $request->contact_email,
+                    'contact_phone' => $request->contact_phone
+                ]);
+
+            }
+        }
+
+        $project = Project::create([
+            'name' => $request->name,
+            'start_date' => $request->start_date,
+            'type'      => $request->type,
+            'description'   => $request->description,
+            'info_docent' => $request->info_docent,
+            'customer_id' => $request->customer_id ?? $customer->id,
+            'notes' => $request->notes
+        ]);
+        return redirect()->route('projects.index')->with('message', 'Project succesvol aangemaakt.');
+
     }
 
     /**
