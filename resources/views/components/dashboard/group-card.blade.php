@@ -29,7 +29,7 @@
             @endforelse
         </ul>
     </p>
-
+    @if(!$withProjects)
     <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
 
         <li class="text-blue-500 py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
@@ -47,4 +47,5 @@
         </li>
 
     </ul>
+    @endif
 </div>
