@@ -17,14 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $role = Role::create(['name' => 'admin']);
+        if (!Role::where('name', 'admin')->first()) {
+            $role = Role::create(['name' => 'admin']);
 
-        $role->syncPermissions([
-            Permission::create(['name' => 'Manage Users']),
-            Permission::create(['name' => 'Manage Projects']),
-            Permission::create(['name' => 'Manage Groups']),
-            Permission::create(['name' => 'Manage Customers'])
-        ]);
+            $role->syncPermissions([
+                Permission::create(['name' => 'Manage Users']),
+                Permission::create(['name' => 'Manage Projects']),
+                Permission::create(['name' => 'Manage Groups']),
+                Permission::create(['name' => 'Manage Customers'])
+            ]);
+        }
+
 
         \App\Models\User::factory(30)->create();
 
