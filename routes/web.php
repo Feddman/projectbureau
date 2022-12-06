@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('users', UsersController::class);
 
+
     Route::get("media/download/{id}", [ProjectController::class, 'downloadMedia'])->name('media.download');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

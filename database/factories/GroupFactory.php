@@ -18,7 +18,8 @@ class GroupFactory extends Factory
     {
         return [
             'name' => 'group' . $this->faker->name,
-            'description' => $this->faker->text(100)
+            'description' => $this->faker->text(100),
+            'invitation_token' => \Str::random(10),
         ];
     }
 }
