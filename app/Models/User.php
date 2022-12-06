@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function customer() {
         return $this->belongsTo(Customer::class, 'user_id');
     }
+
+    public function ownedGroups(){
+        return $this->hasMany(Group::class,'creator_id');
+    }
 }
