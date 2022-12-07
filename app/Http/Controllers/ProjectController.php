@@ -61,6 +61,10 @@ class ProjectController extends Controller
             'notes' => $request->notes
         ]);
 
+        if($request->tags) {
+            $project->syncTags(explode(',',str_replace(' ', '', $request->tags)));
+        }
+
         if($request->hasFile('files')) {
             foreach($request->file('files') as $file) {
                 $project->addMedia($file)->usingFileName(\Str::random(20) . '' . $project->id . '.' . $file->getClientOriginalExtension())->toMediaCollection('project_attachments');
@@ -79,7 +83,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-
         return view('projects.show', compact('project'));
     }
 
@@ -91,7 +94,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-
+        $customers = \App\Models\Customer::all();
+        return view('projects.edit', compact('project', 'customers'));
     }
 
     /**
@@ -103,7 +107,37 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        if (!$request->customer_id) {
+            if (isset($request->contact_name)) {
+                $customer = \App\Models\Customer::create([
+                    'contact_name' => $request->contact_name,
+                    'contact_email' => $request->contact_email,
+                    'contact_phone' => $request->contact_phone
+                ]);
+            }
+        }
+
+        $project->update([
+            'name' => $request->name,
+            'start_date' => $request->start_date,
+            'type'      => $request->type,
+            'description'   => $request->description,
+            'info_docent' => $request->info_docent,
+            'customer_id' => $request->customer_id ?? $customer->id,
+            'notes' => $request->notes
+        ]);
+
+        if ($request->tags) {
+            $project->syncTags(explode(',', str_replace(' ', '', $request->tags)));
+        }
+
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $project->addMedia($file)->usingFileName(\Str::random(20) . '' . $project->id . '.' . $file->getClientOriginalExtension())->toMediaCollection('project_attachments');
+            }
+        }
+
+        return back();
     }
 
     /**

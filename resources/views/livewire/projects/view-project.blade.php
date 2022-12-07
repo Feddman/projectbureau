@@ -16,6 +16,8 @@
 
     </ul>
 
+
+
     <div class="mt-4">
         @if($tabActive == 'overzicht')
            @livewire('projects.tabs.overzicht', ['project' => $project])
@@ -23,4 +25,5 @@
             @livewire('projects.tabs.groepen', ['project' => $project])
         @endif
     </div>
+
 </div>

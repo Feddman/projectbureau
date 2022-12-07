@@ -7,5 +7,4 @@
     @endif
     <label for="">Tags (zonder hashtag, gescheiden door komma's)</label>
     <input type="text" placeholder="html, php, javascript" name="tags" id="tags"  class="bg-gray-100 border-2 w-full p-4 rounded-lg">
-
 </div>
