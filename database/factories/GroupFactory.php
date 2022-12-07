@@ -20,6 +20,7 @@ class GroupFactory extends Factory
             'name' => 'Group ' . \Str::random(4),
             'description' => $this->faker->text(100),
             'invitation_token' => \Str::random(10),
+            'creator_id'=>$this->faker->numberBetween(1,29)
         ];
     }
 }

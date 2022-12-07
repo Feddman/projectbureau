@@ -19,5 +19,9 @@ class Group extends Model
         return $this->belongsToMany(User::class, 'group_user');
     }
 
+    public function creator(){
+        $this->belongsTo(User::class,'creator_id');
+    }
+
 
 }
