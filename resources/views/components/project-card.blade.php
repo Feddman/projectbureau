@@ -1,7 +1,7 @@
 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$project->name}}</h5>
-        <p><i>{{$project->type->name}}</i></p>
+        <p class="font-bold"><i>type: {{$project->type->name}}</i></p>
     </a>
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $project->description }}</p>
     <a href="{{route('projects.show', $project)}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-700 rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
