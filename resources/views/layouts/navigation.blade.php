@@ -22,16 +22,20 @@
                         Projecten
                     </x-nav-link>
                 </div>
+                @can('Manage Groups')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">
                         Groepen
                     </x-nav-link>
                 </div>
+                @endcan
+                @can('Manage Users')
                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         Deelnemers
                     </x-nav-link>
                 </div>
+                @endcan
 
             </div>
 

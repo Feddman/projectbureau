@@ -16,7 +16,7 @@
 
                     @forelse ($groups as $group)
                         <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
-                            <x-dashboard.group-card :withProjects=true :group="$group" />
+                            <x-dashboard.group-card :withProjects=false :group="$group" />
                         </div>
                     @empty
                         {{-- info message --}}

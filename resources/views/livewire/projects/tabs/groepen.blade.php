@@ -13,7 +13,7 @@
     </div>
     @endforelse
     </div>
-    <select wire:model="groupSelected" class="mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
+    <select wire:model="groupSelected" class="mt-4 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
         <option value="">Selecteer een projectgroep</option>
         @foreach($groups as $group)
         <option value="{{$group->id}}">{{$group->name}} (@foreach($group->users as $user) {{$user->name}}@unless($loop->last), @endunless @endforeach)</option>

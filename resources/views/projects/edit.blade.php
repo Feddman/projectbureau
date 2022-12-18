@@ -34,10 +34,10 @@
                             <label for="name">Type project</label>
                             <select name="type" id="" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('customer_id') border-red-500 @enderror">
                                 <option value="">Selecteer type project</option>
-                                <option value="Digitale werkplaats">Digitale werkplaats</option>
-                                <option value="Innovatie project (open dag project)">Innovatie project (open dag project)</option>
-                                <option value="Project externe opdrachtgever">Externe opdrachtgever</option>
-                                <option value="Project vanuit docententeam">Vanuit docententeam</option>
+                                @foreach(\App\Models\ProjectType::all() as $type)
+                                    <option @if($type->id == $project->type_id) selected @endif value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+
                             </select>
                             @error('customer_id')
                                 <div class="text-red-500 mt-2 text-sm">

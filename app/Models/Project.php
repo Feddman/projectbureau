@@ -24,4 +24,8 @@ class Project extends Model implements HasMedia
     public function customer() {
         return $this->belongsTo(Customer::class);
     }
+
+    public function type() {
+        return $this->belongsTo(ProjectType::class, 'type_id');
+    }
 }

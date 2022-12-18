@@ -8,6 +8,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProjectController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware(['role:admin'])->except(['index', 'show', 'propose']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +58,7 @@ class ProjectController extends Controller
         $project = Project::create([
             'name' => $request->name,
             'start_date' => $request->start_date,
-            'type'      => $request->type,
+            'type_id'      => $request->type,
             'description'   => $request->description,
             'info_docent' => $request->info_docent,
             'customer_id' => $request->customer_id ?? $customer->id,
@@ -120,7 +124,7 @@ class ProjectController extends Controller
         $project->update([
             'name' => $request->name,
             'start_date' => $request->start_date,
-            'type'      => $request->type,
+            'type_id'      => $request->type,
             'description'   => $request->description,
             'info_docent' => $request->info_docent,
             'customer_id' => $request->customer_id ?? $customer->id,

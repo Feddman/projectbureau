@@ -20,7 +20,8 @@ class YourGroups extends Component
 
         $group = auth()->user()->groups()->create([
             'name' => $this->newGroup,
-            'invitation_token' => \Str::random(10)
+            'invitation_token' => \Str::random(10),
+            'creator_id' => auth()->user()->id,
         ]);
 
         $this->groups->push($group);

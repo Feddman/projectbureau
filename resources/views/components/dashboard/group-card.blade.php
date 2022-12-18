@@ -1,6 +1,7 @@
 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
-        <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="{{route('groups.show', $group)}}">{{ $group->name }}</a></h3>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="{{route('groups.show', $group)}}">{{ $group->name }} </a></h3>
+        <small><i>gemaakt op {{Date('d-m-Y', strtotime($group->created_at))}}</i></small>
     </a>
 
     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -29,17 +30,17 @@
             @endforelse
         </ul>
     </p>
-    @if(!$withProjects)
+    @if($withProjects)
     <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
 
         <li class="text-blue-500 py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
-            <a href="" class="flex">
+            <a href="{{$group->pivot->trello_link}}" class="flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 <span class="ml-2"> Trello link</span>
             </a>
         </li>
         <li class="text-blue-500 py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">
-            <a href="" class="flex">
+            <a href="{{$group->pivot->github_link}}" class="flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                 <span class="ml-2"> Github Repo </span>
             </a>

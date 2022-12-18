@@ -18,6 +18,7 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'type_id' => $this->faker->numberBetween(1, 5),
             'description' => $this->faker->text,
             'customer_id' => $this->faker->numberBetween(1, 11),
             'start_date' => $this->faker->date,

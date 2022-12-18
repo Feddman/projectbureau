@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\ProjectType;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -17,6 +19,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        ProjectType::create([
+            'name' => 'Digitale werkplaats'
+        ]);
+
+        ProjectType::create([
+            'name' => 'Project externe opdrachtgever'
+        ]);
+
+        ProjectType::create([
+            'name' => 'Innovatieproject'
+        ]);
+
+        ProjectType::create([
+            'name' => 'Examen Oefenproject'
+        ]);
+
+
+        ProjectType::create([
+            'name' => 'Overig'
+        ]);
+
         if (!Role::where('name', 'admin')->first()) {
             $role = Role::create(['name' => 'admin']);
 
