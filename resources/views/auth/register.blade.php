@@ -18,6 +18,10 @@
 
             <!-- Email Address -->
             <div class="mt-4">
+                {{-- info text --}}
+                <p class="text-sm text-red-500 dark:text-red-400">
+                    <span class="font-bold">Let op!</span> Registreer met je curio email adres. Andere email adressen zijn niet toegestaan.
+                </p>
                 <x-input-label for="email" :value="__('Email')" />
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
