@@ -13,12 +13,16 @@
     </div>
     @endforelse
     </div>
-    <select wire:model="groupSelected" class="mt-4 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
-        <option value="">Selecteer een projectgroep</option>
-        @foreach($groups as $group)
-        <option value="{{$group->id}}">{{$group->name}} (@foreach($group->users as $user) {{$user->name}}@unless($loop->last), @endunless @endforeach)</option>
-        @endforeach
-    </select>
+
+    @can('Manage projects')
+        <select wire:model="groupSelected" class="mt-4 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
+            <option value="">Selecteer een projectgroep</option>
+            @foreach($groups as $group)
+            <option value="{{$group->id}}">{{$group->name}} (@foreach($group->users as $user) {{$user->name}}@unless($loop->last), @endunless @endforeach)</option>
+            @endforeach
+        </select>
+    @endcan
+
     @if($groupSelected)
     <button wire:click="saveGroup" type="button" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-500 focus:outline-none dark:focus:ring-blue-500">Projectgroep koppelen</button>
     @endif
