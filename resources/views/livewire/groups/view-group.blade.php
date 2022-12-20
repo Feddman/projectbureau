@@ -17,8 +17,8 @@
                     <div class="flex justify-end">
                         <div>
                         <div class="flex py-4">
-                            <input wire:model="userSearch" placeholder="student email" type="email" name="floating_email" id="floating_email" class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                            <button wire:click="addUser" type="button" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-500 focus:outline-none dark:focus:ring-blue-500">Lid toevoegen</button>
+                            <input wire:model="userSearch" placeholder="student email" type="email" name="floating_email" id="floating_email" class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                            <button wire:click="addUser" type="button" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mr-2 mb-2 focus:outline-none">Lid toevoegen</button>
                         </div>
                          {{--message  --}}
                         @if (session()->has('user-add-error'))
