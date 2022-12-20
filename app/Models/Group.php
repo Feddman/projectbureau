@@ -12,7 +12,7 @@ class Group extends Model
     protected $guarded = [];
 
     public function projects() {
-        return $this->belongsToMany(Project::class, 'group_project');
+        return $this->belongsToMany(Project::class, 'group_project')->withPivot('trello_link', 'github_link');
     }
 
     public function users() {

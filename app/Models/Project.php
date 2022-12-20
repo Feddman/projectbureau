@@ -18,7 +18,7 @@ class Project extends Model implements HasMedia
 
 
     public function groups() {
-        return $this->belongsToMany(Group::class, 'group_project');
+        return $this->belongsToMany(Group::class, 'group_project')->withPivot('trello_link', 'github_link');
     }
 
     public function customer() {
