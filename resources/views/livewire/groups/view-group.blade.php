@@ -16,10 +16,12 @@
                     {{-- add button --}}
                     <div class="flex justify-end">
                         <div>
+                        @if(\Auth::user()->id == $group->creator_id)
                         <div class="flex py-4">
                             <input wire:model="userSearch" placeholder="student email" type="email" name="floating_email" id="floating_email" class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                             <button wire:click="addUser" type="button" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mr-2 mb-2 focus:outline-none">Lid toevoegen</button>
                         </div>
+                        @endif
                          {{--message  --}}
                         @if (session()->has('user-add-error'))
                             <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
@@ -62,10 +64,13 @@
                                         </div>
                                     </td>
                                     <td>
+                                        {{-- check if logged in user is in this group --}}
+                                        @if(\Auth::user()->id == $group->creator_id)
                                         <div class="flex items">
                                             {{-- delete button --}}
                                             <button wire:click="deleteUser({{$user->id}})" type="button" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Verwijderen</button>
                                         </div>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
