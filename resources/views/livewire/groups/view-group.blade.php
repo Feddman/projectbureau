@@ -5,7 +5,7 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                    {{-- add message --}}
                 @if (session()->has('message'))
-                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg " role="alert">
                         <p class="font-bold">Succes!</p>
                         <p>{{ session('message') }}</p>
                     </div>
@@ -22,7 +22,7 @@
                         </div>
                          {{--message  --}}
                         @if (session()->has('user-add-error'))
-                            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
                                 <p class="font-bold">Let op:</p>
                                 <p>{{ session('user-add-error') }}</p>
                             </div>
@@ -64,7 +64,7 @@
                                     <td>
                                         <div class="flex items">
                                             {{-- delete button --}}
-                                            <button wire:click="deleteUser({{$user->id}})" type="button" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-500 focus:outline-none dark:focus:ring-red-500">Verwijderen</button>
+                                            <button wire:click="deleteUser({{$user->id}})" type="button" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Verwijderen</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -73,13 +73,13 @@
                 </div>
 
                 <h3 class="text-2xl font-bold my-4">Projecten</h3>
-                <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
                     @forelse($group->projects as $project)
-                    <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                    <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">
                         <a href="{{route('projects.show', $project)}}">{{$project->name}}</a>
                     </li>
                     @empty
-                    <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">Geen projecten</li>
+                    <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">Geen projecten</li>
                     @endforelse
                 </ul>
             </div>
