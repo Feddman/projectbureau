@@ -5,7 +5,7 @@
     </a>
 
     <p class="mb-3 font-normal text-gray-700">
-        @if($withProjects)
+        {{-- @if($withProjects)
         <h4 class="mb-2 font-bold tracking-tight text-gray-900 font-italic">Actieve projecten:</h4>
         <ul class="mb-4 space-y-1 max-w-md list-inside text-gray-500">
 
@@ -18,7 +18,7 @@
                     <p>Nog geen projecten aangenomen.</p>
                 @endforelse
         </ul>
-        @endif
+        @endif --}}
         <h4 class="mb-2 font-bold tracking-tight text-gray-900  font-italic">Leden:</h4>
         <ul class="mb-4 space-y-1 max-w-md list-inside text-gray-500 ">
             @forelse($group->users as $user)

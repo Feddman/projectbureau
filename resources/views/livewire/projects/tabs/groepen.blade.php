@@ -2,7 +2,7 @@
      <h4 class="text-2xl font-bold mb-4">Gekoppelde projectgroepen</h4>
     <div class="grid grid-cols-3 gap-3">
     @forelse($project->groups as $group)
-        <x-dashboard.group-card :withProjects=false :group="$group" />
+        <x-dashboard.group-card :withProjects=true :group="$group" />
     @empty
 
     <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
@@ -16,7 +16,7 @@
         <select wire:model="groupSelected" class="mt-4 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
             <option value="">Selecteer een projectgroep</option>
             @foreach($groups as $group)
-            <option value="{{$group->id}}">{{$group->name}} (@foreach($group->users as $user) {{$user->name}}@unless($loop->last), @endunless @endforeach)</option>
+                <option value="{{$group->id}}">{{$group->name}} (@foreach($group->users as $user) {{$user->name}}@unless($loop->last), @endunless @endforeach)</option>
             @endforeach
         </select>
     @endcan
