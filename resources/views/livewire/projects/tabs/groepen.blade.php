@@ -14,7 +14,7 @@
     @endforelse
     </div>
 
-    @can('Manage projects')
+    @can('Manage Projects')
         <select wire:model="groupSelected" class="mt-4 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
             <option value="">Selecteer een projectgroep</option>
             @foreach($groups as $group)
