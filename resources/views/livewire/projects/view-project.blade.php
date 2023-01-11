@@ -1,4 +1,3 @@
-
 <div class="border-b border-gray-200 dark:border-gray-700">
     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
         <li class="mr-2">
@@ -13,17 +12,12 @@
                 Groepen <span class="ml-1 text-xs text-blue-500 dark:text-blue-400 font-bold">{{$project->groups->count()}}</span>
             </a>
         </li>
-
     </ul>
-
-
-
     <div class="mt-4">
         @if($tabActive == 'overzicht')
-           @livewire('projects.tabs.overzicht', ['project' => $project])
+            @livewire('projects.tabs.overzicht', ['project' => $project])
         @elseif($tabActive == 'groepen')
             @livewire('projects.tabs.groepen', ['project' => $project])
         @endif
     </div>
-
 </div>
