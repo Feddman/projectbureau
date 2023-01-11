@@ -8,12 +8,12 @@ use Livewire\Component;
 class ProjectsIndex extends Component
 {
     public $projects;
-    public $filter;
+    public $filterType;
 
-    public function updatedFilter()
+    public function updatedFilterType()
     {
-        $this->projects = Project::when($this->filter, function($query){
-            return $query->where('type_id', $this->filter);
+        $this->projects = Project::when($this->filterType, function($query){
+            return $query->where('type_id', $this->filterType);
         })->get();
     }
 
