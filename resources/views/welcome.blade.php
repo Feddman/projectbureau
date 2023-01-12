@@ -13,12 +13,12 @@
         </ol>
         <div class="fixed top-0 right-0 px-6 py-4 sm:block xs:block">
             @auth
-                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                <a href="{{ url('/dashboard') }}" class="text-sm text-blue-700 no-underline">Dashboard</a>
             @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700  underline">Log in</a>
+                <a href="{{ route('login') }}" class="text-sm text-blue-700 no-underline">Log in</a>
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-blue-700 no-underline">Register</a>
                 @endif
             @endauth
         </div>
@@ -43,35 +43,28 @@
                 </div>
                 <h2 id="accordion-color-heading-2">
                     <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-color-body-2" aria-expanded="false" aria-controls="accordion-color-body-2">
-                        <span>Is there a Figma file available?</span>
+                        <span>Test</span>
                         <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </h2>
                 <div id="accordion-color-body-2" class="hidden" aria-labelledby="accordion-color-heading-2">
                     <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-                        <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consectetur et libero magnam natus odio perferendis porro quibusdam rerum soluta, suscipit tenetur veritatis! Beatae libero obcaecati possimus, quas rem sint!</p>
                     </div>
                 </div>
                 <h2 id="accordion-color-heading-3">
                     <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-color-body-3" aria-expanded="false" aria-controls="accordion-color-body-3">
-                        <span>What are the differences between Flowbite and Tailwind UI?</span>
+                        <span>Test</span>
                         <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </h2>
                 <div id="accordion-color-body-3" class="hidden" aria-labelledby="accordion-color-heading-3">
                     <div class="p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700">
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-                        <p class="mb-2 text-gray-500 dark:text-gray-400">Learn more about these technologies:</p>
-                        <ul class="pl-5 text-gray-500 list-disc dark:text-gray-400">
-                            <li><a href="https://flowbite.com/pro/" class="text-blue-600 dark:text-blue-500 hover:underline">Flowbite Pro</a></li>
-                            <li><a href="https://tailwindui.com/" rel="nofollow" class="text-blue-600 dark:text-blue-500 hover:underline">Tailwind UI</a></li>
-                        </ul>
+                        <p class="mb-2 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis distinctio dolorum ea est exercitationem fuga, iusto magnam maxime nemo nesciunt non pariatur, quaerat quibusdam saepe, sint tenetur vel veritatis voluptatum!</p>
                     </div>
                 </div>
             </div>
-
+            <a href=""><button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 h-12">Ga naar Projecten</button></a>
         </div>
     </div>
 </x-guest-layout>
