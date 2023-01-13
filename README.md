@@ -29,3 +29,16 @@ Clients can place assignments that are intended for students. Students can choos
 - Read the error message carefully. Scroll up, you can often skip the stack trace.
 - Double check data in your .env at the DB_DATABASE, DB_USERNAME, and DB_PASSWORD.
 - Is Xampp running? Have you created a database in phpMyAdmin? Is the name correct?
+
+## Definition of Done
+
+The definition of done defines when a userstory is done.
+
+**Definition of Done checklist**
+
+- [ ] Unit test passed
+- [ ] Code Review done by other developer
+- [ ] Functional tests passed
+- [ ] tested on other device
+
+
