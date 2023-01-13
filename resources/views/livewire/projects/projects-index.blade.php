@@ -15,7 +15,7 @@
 			<x-checkbox id="PHP" value="PHP" name="filterTags[]" wire:model="filterTags">
 				PHP
 			</x-checkbox>
-			<x-checkbox id="C#" value="c#" name="filterTags[]" wire:model="filterTags">
+			<x-checkbox id="C#" value="C#" name="filterTags[]" wire:model="filterTags">
 				C#
 			</x-checkbox>
 		</div>
