@@ -3,10 +3,10 @@
 		<h2 class="my-2 border-bottom-2 text-2xl"> Lopende projecten </h2>
 
 		<div class="flex">
-			<x-checkbox id="frontend" value="frontend" name="filterTags[]" wire:model="filterTags">
+			<x-checkbox id="frontend" value="Frontend" name="filterTags[]" wire:model="filterTags">
 				Frontend
 			</x-checkbox>
-			<x-checkbox id="backend" value="backend" name="filterTags[]" wire:model="filterTags">
+			<x-checkbox id="backend" value="Backend" name="filterTags[]" wire:model="filterTags">
 				Backend
 			</x-checkbox>
 			<x-checkbox id="HTML" value="HTML" name="filterTags[]" wire:model="filterTags">
