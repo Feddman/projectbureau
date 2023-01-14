@@ -125,14 +125,8 @@
 
                         <div class="mb-4">
                             @if(isset($project))
-                             <i>Gegeven Tags: @foreach($project->tags as $tab)
-                                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{{$tab->name}}</span>
-                                        @endforeach
-                             </i>
+                                @livewire('projects.tags-input', ['project' => $project])
                             @endif
-                            <br>
-                            <label for="">Tags (zonder hashtag, gescheiden door komma's)</label>
-                            <input type="text" placeholder="html, php, javascript" name="tags" id="tags"  class="bg-gray-100 border-2 w-full p-4 rounded-lg">
                         </div>
 
                         <p class="text-lg text-gray-400 font-bold mb-2">Bijlagen</p>
@@ -157,4 +151,5 @@
             </div>
         </div>
     </div>
+    @stack('scripts')
 </x-app-layout>
