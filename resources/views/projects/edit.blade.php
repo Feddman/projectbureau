@@ -152,8 +152,18 @@
                             <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Project wijzigen</button>
                         </div>
 
+                    </form>
+
+
 
                 </div>
+
+                 {{-- delete project --}}
+                <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 pull-right text-white px-4 py-3 rounded font-medium">Project verwijderen</button>
+                </form>
             </div>
         </div>
     </div>

@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\HasTags;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+// softdeletes
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Project extends Model implements HasMedia
 {
-    use HasFactory, HasTags,InteractsWithMedia;
+    use HasFactory, HasTags,InteractsWithMedia, SoftDeletes;
     protected $table = 'projects';
     protected $guarded = [];
 

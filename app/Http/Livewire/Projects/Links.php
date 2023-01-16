@@ -31,6 +31,7 @@ class Links extends Component
             'github_link' => $this->group->pivot['github_link']
         ]);
         session()->flash('message', 'Links opgeslagen');
+        
     }
 
 
