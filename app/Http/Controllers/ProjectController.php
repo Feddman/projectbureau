@@ -66,7 +66,7 @@ class ProjectController extends Controller
         ]);
 
         if($request->tags) {
-            $project->syncTags(explode(',',str_replace(' ', '', $request->tags)));
+            $project->tags()->sync($request->tags);
         }
 
         if($request->hasFile('files')) {
@@ -132,7 +132,7 @@ class ProjectController extends Controller
         ]);
 
         if ($request->tags) {
-            $project->syncTags(explode(',', str_replace(' ', '', $request->tags)));
+            $project->tags()->sync($request->tags);
         }
 
         if ($request->hasFile('files')) {

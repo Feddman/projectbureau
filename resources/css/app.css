@@ -1,3 +1,4 @@
+@import 'select2/dist/css/select2.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
