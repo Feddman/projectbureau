@@ -43,4 +43,6 @@ class ViewGroup extends Component
     {
         return view('livewire.groups.view-group');
     }
+
+    
 }

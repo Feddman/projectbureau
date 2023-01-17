@@ -66,7 +66,7 @@ class ProjectController extends Controller
         ]);
 
         if($request->tags) {
-            $project->syncTags(explode(',',str_replace(' ', '', $request->tags)));
+            $project->tags()->sync($request->tags);
         }
 
         if($request->hasFile('files')) {
@@ -132,7 +132,7 @@ class ProjectController extends Controller
         ]);
 
         if ($request->tags) {
-            $project->syncTags(explode(',', str_replace(' ', '', $request->tags)));
+            $project->tags()->sync($request->tags);
         }
 
         if ($request->hasFile('files')) {
@@ -152,7 +152,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('projects.index')->with('message', 'Project succesvol verwijderd.');
     }
 
     public function downloadMedia($id) {

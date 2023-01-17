@@ -137,4 +137,6 @@
             </div>
         </div>
     </div>
+    
+    @stack('scripts')
 </x-app-layout>
