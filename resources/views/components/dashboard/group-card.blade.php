@@ -29,7 +29,6 @@
                 <p>Nog geen teamleden in dit team</p>
             @endforelse
         </ul>
-    </p>
     @if( auth()->user()->id == $group->creator_id || auth()->user()->hasRole('admin'))
         @if($withProjects)
             @livewire('projects.links', ['group' => $group, 'project' => $project])
