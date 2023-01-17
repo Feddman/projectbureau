@@ -8,6 +8,7 @@ use App\Models\ProjectType;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Tags\Tag;
 
 
 class DatabaseSeeder extends Seeder
@@ -38,6 +39,26 @@ class DatabaseSeeder extends Seeder
 
         ProjectType::create([
             'name' => 'Overig'
+        ]);
+        
+        Tag::create([
+            'name' => 'Frontend'
+        ]);
+
+        Tag::create([
+            'name' => 'Backend'
+        ]);
+
+        Tag::create([
+            'name' => 'HTML'
+        ]);
+
+        Tag::create([
+            'name' => 'PHP'
+        ]);
+
+        Tag::create([
+            'name' => 'C#'
         ]);
 
         if (!Role::where('name', 'admin')->first()) {
