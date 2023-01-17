@@ -12,7 +12,7 @@ class Groepen extends Component
     public $groupSelected;
 
     public function mount() {
-        $this->groups = Group::all();
+        $this->groups = $this->project->groups;
     }
 
     public function selectGroup($id) {
