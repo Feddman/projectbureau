@@ -26,10 +26,12 @@
 				<option value="{{ $type->id }}">{{ $type->name }}</option>
 			@endforeach
 		</select>
-
+		{{-- filter om de button niet voor iedereen te laten zien  --}}
+        @if( auth()->user()->hasRole('admin'))
 		<a href="{{ route('projects.create') }}"
 		   class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">+ Nieuw project
 		</a>
+		@endif
 	</div>
 
 	<div class="grid grid-cols-3 gap-3">
