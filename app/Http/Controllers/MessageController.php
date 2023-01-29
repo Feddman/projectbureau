@@ -13,7 +13,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return view('messages.index');
+        $groups = auth()->user()->groups;
+        return view('messages.index', [
+            'groups' => $groups
+        ]);
     }
 
     /**
