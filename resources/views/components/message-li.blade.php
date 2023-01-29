@@ -12,7 +12,7 @@
     'hover:bg-gray-100 hover:text-blue-700 focus:ring-2 focus:ring-blue-700 focus:text-blue-700' => !$selected])->merge()}}>
 	<div class="flex justify-between">
 		<span>{{$message->subject}}</span>
-		<span>{{\Carbon\Carbon::parse($message->created_at)->format('d-m-Y H:i:s')}}</span>
+		<span>{{\Carbon\Carbon::parse($message->created_at)->format('d-m-Y H:i')}}</span>
 	</div>
 	<p>{{$message->message}}</p>
 </ul>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('group_id')->references('id')->on('groups');
             $table->string('subject');
             $table->text('message');
+            $table->timestamps();
         });
     }
 
