@@ -80,6 +80,7 @@ class GroupProjectController extends Controller
      */
     public function destroy(GroupProject $groupProject)
     {
-        //
+        GroupProject::destroy($groupProject->id);
+        return redirect()->route('projects.show', $groupProject->project_id);
     }
 }

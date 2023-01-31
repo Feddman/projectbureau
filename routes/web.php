@@ -5,6 +5,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\GroupProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
     Route::resource('customers', CustomerController::class);
     Route::resource('users', UsersController::class);
+    Route::resource('group-projects', GroupProjectController::class);
 
 
     Route::get("media/download/{id}", [ProjectController::class, 'downloadMedia'])->name('media.download');
@@ -39,5 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
