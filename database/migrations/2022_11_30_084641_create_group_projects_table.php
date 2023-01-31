@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('group_id')->references('id')->on('groups');
             $table->foreignId('project_id')->references('id')->on('projects');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,5 +30,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('group_project');
+        
     }
 };

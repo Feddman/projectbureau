@@ -1,8 +1,17 @@
 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-    <a href="#">
+  
+    <span class="flex justify-between">
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><a href="{{route('groups.show', $group)}}">{{ $group->name }} </a></h3>
-        <small><i>gemaakt op {{Date('d-m-Y', strtotime($group->created_at))}}</i></small>
-    </a>
+        @if(isset($archived) && !$archived)
+            <form action="{{route('group-projects.destroy', $group->pivot->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Ontkoppel groep" class="bg-red-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            </form>
+        @endif
+
+    </span>
+    <small><i>gemaakt op {{Date('d-m-Y', strtotime($group->created_at))}}</i></small>
 
     <p class="mb-3 font-normal text-gray-700">
         {{-- @if($withProjects)
