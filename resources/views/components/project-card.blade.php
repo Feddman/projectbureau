@@ -1,4 +1,4 @@
-<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md ">
+<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md @if($project->groups->count() == 0) bg-lime-200 @else bg-orange-200 @endif">
     <a href="#">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$project->name}}</h5>
         <p class="font-bold"><i>type: {{$project->type->name}}</i></p>
