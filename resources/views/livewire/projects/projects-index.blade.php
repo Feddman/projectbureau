@@ -32,9 +32,9 @@
 		</a>
 	</div>
 
-	<div class="grid grid-cols-3 gap-3 " >
+	<div class="grid grid-cols-3 gap-3">
 		@forelse($projects as $project)
-			<x-project-card :project="$project" />
+			<x-project-card :project="$project"/>
 		@empty
 			<p>nog geen projecten</p>
 		@endforelse
