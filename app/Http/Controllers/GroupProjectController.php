@@ -78,24 +78,7 @@ class GroupProjectController extends Controller
         ->where('id', $gpId)
         ->restore();
         $project_id = $request->project_id;
-        // $groupP = GroupProject::findOrFail($gpId);
-        // dd($groupP);
         return redirect()->route('projects.show', $project_id);
-
-        // dd($gp);
-        // return redirect()->route('projects.show', $gp->project_id);
-
-        // $request->validate([
-        //     //
-        // ]);
-        // $group_project = GroupProject::findOrFail($gpId);
-        // dd($gpId);
-        // $gpId->group_id = $request->group_id ;
-        // $gpId->project_id = $request->project_id;
-        // $gpId->deleted_at = NULL;
-        // $gpId->save();
-
-        // return redirect()->route('projects.show', $gpId->project_id);
     }
 
     /**
