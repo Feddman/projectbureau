@@ -20,13 +20,13 @@ class Project extends Model implements HasMedia
 
     public function archivedGroups() {
         return $this->belongsToMany(Group::class, 'group_project')
-            ->withPivot('id','trello_link', 'github_link', 'deleted_at')
+            ->withPivot('id', 'project_id', 'trello_link', 'github_link', 'deleted_at')
             ->wherePivotNotNull('deleted_at');
     }
 
     public function groups() {
         return $this->belongsToMany(Group::class, 'group_project')
-            ->withPivot('id','trello_link', 'github_link', 'deleted_at')
+            ->withPivot('id', 'project_id', 'trello_link', 'github_link', 'deleted_at')
             ->wherePivotNull('deleted_at');
     }
 

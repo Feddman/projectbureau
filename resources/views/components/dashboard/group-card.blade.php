@@ -8,7 +8,15 @@
                 @method('DELETE')
                 <input type="submit" value="Ontkoppel groep" class="bg-red-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             </form>
+        @else
+            <form action="{{route('group-projects.update', $group->pivot->id)}}" method="POST">
+                @csrf
+                @method('PUT')
+                <input type="hidden" name="project_id" value="{{$group->pivot->project_id}}">
+                <input type="submit" value="Koppel groep opnieuw" class="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            </form>
         @endif
+        
 
     </span>
     <small><i>gemaakt op {{Date('d-m-Y', strtotime($group->created_at))}}</i></small>
