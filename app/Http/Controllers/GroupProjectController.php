@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 class GroupProjectController extends Controller
 {
 
-    public function undoSoftDelete(GroupProject $gpId){
-        // $gpId->restore();
-        // return redirect()->route('projects.show', $gpId->project_id);
-    }
     /**
      * Display a listing of the resource.
      *
