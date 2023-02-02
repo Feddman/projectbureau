@@ -8,7 +8,7 @@
                 @method('DELETE')
                 <input type="submit" value="Ontkoppel groep" class="bg-red-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             </form>
-        @else
+        @elseif(isset($archived) && $archived)
             <form action="{{route('group-projects.update', $group->pivot->id)}}" method="POST">
                 @csrf
                 @method('PUT')
