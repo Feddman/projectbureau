@@ -52,6 +52,12 @@
 	</div>
 
 	<div class="basis-1/2">
-
+		<div class="px-5">
+			@if($selectedMessage)
+				<h2 class="text-4xl font-bold">{{$selectedMessage->subject}}</h2>
+				<hr class="h-px my-3 bg-gray-200 border-0">
+				<p>{{$selectedMessage->message}}</p>
+			@endif
+		</div>
 	</div>
 </div>
