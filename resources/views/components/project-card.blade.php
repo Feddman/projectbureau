@@ -6,7 +6,13 @@
                 <p class="font-bold"><i>type: {{$project->type->name}}</i></p>
             </div>
             <div class="right-priority">
-                <span class="bg-white-100 bg-white-500 text-xs font-medium mr-2 px-3.5 py-2.5 rounded dark:text-white-700 dark:text-gray-700 border border-gray-700">@if(isset($project->priority) && $project->priority == 3)3 @elseif(isset($project->priority) && $project->priority == 2) 2 @else 1 @endif</span>
+                <span class="bg-white-100 bg-white-500 text-xs font-medium mr-2 px-3.5 py-2.5 rounded dark:text-white-700 dark:text-gray-700 border border-gray-700">
+                    @if(isset($project->priority))
+                        @if($project->priority == 3)3 
+                        @elseif($project->priority == 2)2 
+                        @else 1 
+                        @endif 
+                    @endif</span>
             </div>
         </a>
         <p class="mb-3 font-normal text-gray-700">{{ $project->description }}</p>
