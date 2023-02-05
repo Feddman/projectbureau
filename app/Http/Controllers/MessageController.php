@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -26,7 +28,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        return view('messages.index');
     }
 
     /**
@@ -37,7 +39,14 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = Message::create([
+            'topic' => $request->topic,
+            'group_id'      => $request->group,
+            'description'   => $request->description,
+        ]);
+
+        return redirect()->route('messages.index')->with('message', 'Bericht succesvol verstuurd.');
+
     }
 
     /**

@@ -132,11 +132,11 @@
                             <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Project aanmaken</button>
                         </div>
 
-
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
+
     @stack('scripts')
 </x-app-layout>
