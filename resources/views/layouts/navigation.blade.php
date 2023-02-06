@@ -36,13 +36,13 @@
                     </x-nav-link>
                 </div>
                 @endcan
-{{--                @can('Manage Messages')--}}
+                @can('Send Messages')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
                         Berichten
                     </x-nav-link>
                 </div>
-{{--                @endcan--}}
+                @endcan
 
             </div>
 
