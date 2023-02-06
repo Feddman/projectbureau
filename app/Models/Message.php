@@ -11,9 +11,11 @@ class Message extends Model
 {
     use HasFactory;
 
+    protected $guarded=[];
+
     /**
      * Get the group the message was sent to.
-     * 
+     *
      * @return BelongsTo
      */
     public function group() {
@@ -22,7 +24,7 @@ class Message extends Model
 
     /**
      * Get all members of the message's group.
-     * 
+     *
      * @return mixed
      */
     public function recipients() {
@@ -31,7 +33,7 @@ class Message extends Model
 
     /**
      * Get users that have read the message.
-     * 
+     *
      * @return BelongsToMany
      */
     public function readByUsers() {
@@ -40,12 +42,12 @@ class Message extends Model
 
     /**
      * Check if the message is read by a specified user.
-     * 
+     *
      * @param $user
      * @return bool
      */
     public function isReadByUser($user) {
         return $this->readByUsers()->where('user_id', $user)->exists();
     }
-    
+
 }

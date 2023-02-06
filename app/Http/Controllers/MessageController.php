@@ -28,7 +28,10 @@ class MessageController extends Controller
      */
     public function create()
     {
-        return view('messages.index');
+        $groups = auth()->user()->groups;
+        return view('messages.create', [
+            'groups' => $groups
+        ]);
     }
 
     /**
@@ -40,12 +43,12 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $messages = Message::create([
-            'topic' => $request->topic,
-            'group_id'      => $request->group,
-            'description'   => $request->description,
+            'subject' => $request->subject,
+            'group_id'      => $request->group_id,
+            'message'   => $request->message,
         ]);
 
-        return redirect()->route('messages.index')->with('message', 'Bericht succesvol verstuurd.');
+        return redirect()->route('messages.index');
 
     }
 
