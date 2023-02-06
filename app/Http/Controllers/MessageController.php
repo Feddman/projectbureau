@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware(['role:admin'])->except(['index']);
+    }
+    
     /**
      * Display a listing of the resource.
      *
