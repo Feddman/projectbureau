@@ -1,6 +1,6 @@
 @props([
     'message' => $message,
-    'read' => $message->isReadByUser(auth()->id()),
+    'read' => $message->isReadByUser(auth()->id()) || auth()->user()->hasRole('admin'),
     'selected' => $selectedMessage == $message
 ])
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\Message;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -20,7 +21,15 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $groups = auth()->user()->groups;
+        $groups = [];
+        
+        if (auth()->user()->hasRole('admin')) {
+            $groups = Group::whereHas('messages')->get();
+        }
+        else {
+            $groups = auth()->user()->groups;
+        }
+        
         return view('messages.index', [
             'groups' => $groups
         ]);

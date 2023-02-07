@@ -68,11 +68,13 @@ class MessagesIndex extends Component
      */
     public function markAsRead(Message $message): void
     {
-        if (!$message->isReadByUser(auth()->id())) {
-            $message->readByUsers()->attach([auth()->id() => [
+        if (!auth()->user()->hasRole('admin')) {
+            if (!$message->isReadByUser(auth()->id())) {
+                $message->readByUsers()->attach([auth()->id() => [
                     'read_at' => now()
                 ]
-            ]);
+                ]);
+            }
         }
     }
     
