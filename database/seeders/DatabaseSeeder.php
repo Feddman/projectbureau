@@ -87,6 +87,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Group::factory(30)->create();
         \App\Models\GroupUser::factory(30)->create();
         \App\Models\GroupProject::factory(30)->create();
+        \App\Models\Message::factory(50)->create();
 
     }
 }
