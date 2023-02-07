@@ -65,7 +65,7 @@
 			</div>
 		</div>
 
-	<div class="basis-1/2">
+		<div class="basis-1/2 self-start sticky top-5">
 			<div class="px-5">
 
 				@if($selectedMessage)
