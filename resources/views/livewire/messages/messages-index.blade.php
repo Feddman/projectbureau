@@ -66,12 +66,30 @@
 		</div>
 
 	<div class="basis-1/2">
-		<div class="px-5">
-			@if($selectedMessage)
-				<h2 class="text-4xl font-bold">{{$selectedMessage->subject}}</h2>
-				<hr class="h-px my-3 bg-gray-200 border-0">
-				<p>{{$selectedMessage->message}}</p>
-			@endif
+			<div class="px-5">
+
+				@if($selectedMessage)
+					<h2 class="text-4xl font-bold">{{$selectedMessage->subject}}</h2>
+					<hr class="h-px my-3 bg-gray-200 border-0">
+					<p>{{$selectedMessage->message}}</p>
+
+					@can('Send Messages')
+						<h2 class="my-3 text-lg font-semibold text-gray-900">Gelezen door</h2>
+						<ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside">
+							@forelse($selectedMessage->readByUsers as $user)
+								<li>
+									<span class="text-gray-900 font-semibold">{{$user->name}}</span>
+									op {{\Carbon\Carbon::parse($user->pivot->read_at)->format('d-m-Y \o\m H:i')}}
+								</li>
+
+							@empty
+
+								<span class="text-gray-900 font-semibol">Nog niet gelezen</span>
+							@endforelse
+						</ul>
+					@endcan
+				@endif
+			</div>
 		</div>
 	</div>
 </div>
