@@ -128,7 +128,7 @@
                                 @livewire('projects.tags-input', ['project' => $project])
                             @endif
                         </div>
-
+                        @if( auth()->user()->hasRole('admin'))
                         <div class="mb-4">
                             <label for="priority">Prioriteit</label>
                             <select name="priority" id="" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('priority') border-red-500 @enderror">
@@ -141,6 +141,7 @@
                                 </div>
                             @enderror
                         </div>
+                        @endif
 
                         <p class="text-lg text-gray-400 font-bold mb-2">Bijlagen</p>
                         @livewire('projects.edit-attachments', ['project' => $project])

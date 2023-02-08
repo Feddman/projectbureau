@@ -117,6 +117,7 @@
 
                         @livewire('projects.tags-input')
 
+                        @if( auth()->user()->hasRole('admin'))
                         <div class="mb-4">
                             <label for="priority">Prioriteit</label>
                             <select name="priority" id="" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('customer_id') border-red-500 @enderror">
@@ -129,6 +130,7 @@
                                 </div>
                             @enderror
                         </div>
+                        @endif
 
                         <div class="mb-4">
                             <label for="info-docent">Upload documenten</label>
