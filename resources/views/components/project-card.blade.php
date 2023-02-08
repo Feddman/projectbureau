@@ -1,8 +1,19 @@
 <div class="flex flex-col justify-between max-w-sm p-6  border-gray-200 rounded-lg shadow-md @if($project->groups->count() == 0) bg-gradient-to-r from-lime-200 to-lime-300 @else bg-gradient-to-r from-orange-200 to-orange-300 @endif">
     <div class="flex-col">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$project->name}}</h5>
-            <p class="font-bold"><i>type: {{$project->type->name}}</i></p>
+        <a class="flex justify-between" href="#">
+            <div class="left-card">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$project->name}}</h5>
+                <p class="font-bold"><i>type: {{$project->type->name}}</i></p>
+            </div>
+            <div class="right-priority">
+                @if(isset($project->priority))
+                    @if($project->priority == 'hoog')
+                        <span class="bg-white-100 bg-white-500 text-xs font-medium mr-2 px-3.5 py-2.5 rounded dark:text-white-700 dark:text-gray-700 border border-gray-700">
+                        !
+                        </span>
+                    @endif      
+                @endif
+            </div>
         </a>
         <p class="mb-3 font-normal text-gray-700">{{ $project->description }}</p>
     </div>

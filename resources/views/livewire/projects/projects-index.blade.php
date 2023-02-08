@@ -20,14 +20,24 @@
 			</x-checkbox>
 		</div>
 		
-		<select wire:model="filterType" id="type" class="w-fit bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-7">
-			<option value="">Filteren op type</option>
-			@foreach(\App\Models\ProjectType::all() as $type)
-				<option value="{{ $type->id }}">{{ $type->name }}</option>
-			@endforeach
-		</select>
+
+		<div class="flex flex-col">
+			<select wire:model="filterType" id="type" class="mb-1 w-fit bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-7">
+				<option value="">Filteren op type</option>
+				@foreach(\App\Models\ProjectType::all() as $type)
+					<option value="{{ $type->id }}">{{ $type->name }}</option>
+				@endforeach
+			</select>
+
+			<select wire:model="filterPriority" id="priority" class="min-w-50 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-7">
+				<option value="">Filteren op prioriteit</option>
+				<option value="standaard">standaard</option>
+				<option value="hoog">hoog</option>
+			</select>
+		</div>
 		{{-- filter om de button niet voor iedereen te laten zien  --}}
-        @if( auth()->user()->hasRole('admin'))
+		@if( auth()->user()->hasRole('admin'))
+
 		<a href="{{ route('projects.create') }}"
 		   class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">+ Nieuw project
 		</a>

@@ -22,7 +22,10 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::paginate(6);
+        $groups = Group::paginate(20);
+        $sortedGroups = $groups->getCollection()->sortBy('created_at')->values();
+        $groups->setCollection($sortedGroups);
+
         return view('groups.index', ['groups' => $groups]);
     }
 
