@@ -21,8 +21,8 @@
 		</div>
 		
 		<div class="flex flex-col">
-			<select wire:model="filterType" id="type" class="w-fit mb-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-7">
-				<option class="w-20" value="">Filteren op type</option>
+			<select wire:model="filterType" id="type" class="w-fit bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-7">
+				<option value="">Filteren op type</option>
 				@foreach(\App\Models\ProjectType::all() as $type)
 					<option value="{{ $type->id }}">{{ $type->name }}</option>
 				@endforeach
