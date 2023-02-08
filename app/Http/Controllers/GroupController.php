@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\GroupProject;
+use App\Models\GroupUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class GroupController extends Controller
 {
@@ -19,7 +22,10 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
+        $groups = Group::paginate(20);
+        $sortedGroups = $groups->getCollection()->sortBy('created_at')->values();
+        $groups->setCollection($sortedGroups);
+
         return view('groups.index', ['groups' => $groups]);
     }
 
@@ -65,7 +71,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('groups.edit-group', compact('group'));
     }
 
     /**
@@ -77,7 +83,15 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $group->update([
+            'name' => $request->name,
+        ]);
+
+        return back();
     }
 
     /**
@@ -88,7 +102,20 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        $url = URL::current();
+        $parts = Explode('/', $url);
+        $id = $parts[count($parts) - 1];
+
+
+        $groupproject = GroupProject::where('group_id', $id);
+        $groupproject->delete();
+
+        $groupuser = GroupUser::where('group_id', $id);
+        $groupuser->delete();
+
+        $group = Group::where('id', $id);
+        $group->delete();
+        return redirect('dashboard');
     }
 
 

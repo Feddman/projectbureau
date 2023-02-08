@@ -91,7 +91,8 @@ class ProjectController extends Controller
             'description'   => $request->description,
             'info_docent' => $request->info_docent,
             'customer_id' => $request->customer_id ?? $customer->id,
-            'notes' => $request->notes
+            'notes' => $request->notes,
+            'priority' => $request->priority
         ]);
 
         if($request->tags) {
@@ -157,7 +158,8 @@ class ProjectController extends Controller
             'description'   => $request->description,
             'info_docent' => $request->info_docent,
             'customer_id' => $request->customer_id ?? $customer->id,
-            'notes' => $request->notes
+            'notes' => $request->notes,
+            'priority' => $request->priority
         ]);
 
         if ($request->tags) {
