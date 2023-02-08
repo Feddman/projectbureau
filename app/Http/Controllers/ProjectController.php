@@ -24,6 +24,35 @@ class ProjectController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function review()
+    {
+        $projects = Project::all();
+        return view('projects.review.index', [
+            'projects' => $projects
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function review_show($id)
+    {
+        $project = Project::findOrFail($id);
+        $customers = \App\Models\Customer::all();
+        return view('projects.review.show', [
+            'project' => $project,
+            'customers' => $customers
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
