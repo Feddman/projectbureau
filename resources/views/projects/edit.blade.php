@@ -129,6 +129,19 @@
                             @endif
                         </div>
 
+                        <div class="mb-4">
+                            <label for="priority">Prioriteit</label>
+                            <select name="priority" id="" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('priority') border-red-500 @enderror">
+                                <option @if($project->priority == 'standaard') selected @endif value="standaard">standaard</option>
+                                <option @if($project->priority == 'hoog') selected @endif value="hoog">hoog</option>
+                            </select>
+                            @error('priority')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                         <p class="text-lg text-gray-400 font-bold mb-2">Bijlagen</p>
                         @livewire('projects.edit-attachments', ['project' => $project])
                         <div class="mb-4">

@@ -118,6 +118,19 @@
                         @livewire('projects.tags-input')
 
                         <div class="mb-4">
+                            <label for="priority">Prioriteit</label>
+                            <select name="priority" id="" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('customer_id') border-red-500 @enderror">
+                                <option value="standaard">standaard</option>
+                                <option value="hoog">hoog</option>
+                            </select>
+                            @error('priority')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-4">
                             <label for="info-docent">Upload documenten</label>
                             <input multiple name="files[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
 
