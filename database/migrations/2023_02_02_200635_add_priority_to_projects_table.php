@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->integer('priority')->nullable();
+            $table->enum('priority', ['standaard', 'hoog'])->default('standaard');
         });
     }
 

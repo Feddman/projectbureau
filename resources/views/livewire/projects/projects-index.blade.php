@@ -30,9 +30,8 @@
 
 			<select wire:model="filterPriority" id="priority" class="min-w-50 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 pr-7">
 				<option value="">Filteren op prioriteit</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
+				<option value="standaard">standaard</option>
+				<option value="hoog">hoog</option>
 			</select>
 		</div>
 
