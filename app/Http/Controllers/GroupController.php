@@ -19,7 +19,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
+        $groups = Group::all()->sortBy('created_at');
         return view('groups.index', ['groups' => $groups]);
     }
 
