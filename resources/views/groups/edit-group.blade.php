@@ -1,3 +1,9 @@
+@if( auth()->user()->id == $group->creator_id || auth()->user()->hasRole('admin'))
+
+@else
+    <script>window.location = "/dashboard";</script>
+@endif
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
