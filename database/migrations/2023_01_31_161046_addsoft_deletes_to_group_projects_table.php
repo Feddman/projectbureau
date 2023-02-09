@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('group_project', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('group_id')->references('id')->on('groups');
-            $table->foreignId('project_id')->references('id')->on('projects');
-            $table->timestamps();
+        Schema::table('group_project', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -28,7 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_project');
-
+        Schema::table('group_project', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

@@ -22,6 +22,8 @@
                                         <p>nog geen gebruikers</p>
                             @endforelse
                         </div>
+                        {{-- pagination  --}}
+                        <div class="pagination">{{ $users->onEachSide(1)->links() }}</div>
                     </div>
                 </div>
             </div>

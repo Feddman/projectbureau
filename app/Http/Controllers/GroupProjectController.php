@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class GroupProjectController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -67,9 +68,13 @@ class GroupProjectController extends Controller
      * @param  \App\Models\GroupProject  $groupProject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GroupProject $groupProject)
+    public function update(Request $request, $gpId)
     {
-        //
+        GroupProject::withTrashed()
+        ->where('id', $gpId)
+        ->restore();
+        $project_id = $request->project_id;
+        return redirect()->route('projects.show', $project_id);
     }
 
     /**
@@ -80,6 +85,7 @@ class GroupProjectController extends Controller
      */
     public function destroy(GroupProject $groupProject)
     {
-        //
+        GroupProject::destroy($groupProject->id);
+        return redirect()->route('projects.show', $groupProject->project_id);
     }
 }
