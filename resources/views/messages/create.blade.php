@@ -16,9 +16,9 @@
                             <div class="mb-4">
                                 <label for="group_id">Selecteer groep</label>
                                 <select name="group_id" id="group_id" class="bg-gray-100 border-2 w-full p-4 rounded-lg">
-                                    <option value="">Selecteer een groep</option>
+                                    <option value="" selected disabled>Selecteer een groep</option>
                                     @foreach(\App\Models\Group::all() as $group)
-                                        <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                        <option value="{{ $group->id }}">{{ $group->name }} ({{$group->users->pluck(['name'])->implode(', ') ?: 'Geen leden'}})</option>
                                     @endforeach
 
                                 </select>

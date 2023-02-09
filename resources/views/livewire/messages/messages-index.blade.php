@@ -23,7 +23,7 @@
 							<button wire:click="selectGroup({{$group}})" type="button"
 							        class="group/button group-first/item:rounded-t-xl group-last/item:rounded-b-xl flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 hover:bg-blue-100 @if($this->checkGroupAlreadySelected($group)) bg-blue-100 text-blue-600 !rounded-b-none @endif ">
 
-								<span>{{$group->name}}</span>
+								<span>{{$group->name}} <i class="text-sm">({{$group->users->pluck(['name'])->implode(', ') ?: 'Geen leden'}})</i></span>
 
 								<svg data-accordion-icon
 								     class="w-6 h-6 @if($this->checkGroupAlreadySelected($group)) rotate-180 @endif shrink-0"
