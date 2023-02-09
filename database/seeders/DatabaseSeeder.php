@@ -6,7 +6,6 @@ namespace Database\Seeders;
 
 use App\Models\ProjectType;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Tags\Tag;
@@ -78,10 +77,8 @@ class DatabaseSeeder extends Seeder
 
         $admin = \App\Models\User::factory()->create([
             'name' => 'Admin',
-            'email' => 'D284132@edu.curio.nl',
-            'password' => Hash::make('123admin'),
+            'email' => 'test@example.com',
         ]);
-        
         $admin->assignRole('admin');
 
         \App\Models\Customer::factory(30)->create();
