@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-lime-500 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,32 +6,32 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <x-application-logo class="block h-9 w-auto fill-current text-blue-900" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link class="text-blue-900 hover:text-blue-800 active:text-blue-800  text-lg" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
                  <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                <div class=" hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link class="text-blue-900 hover:text-blue-800 active:text-blue-800  text-lg" :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                         Projecten
                     </x-nav-link>
                 </div>
                 @can('Manage Groups')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">
+                    <x-nav-link class="text-blue-900 hover:text-blue-800 active:text-blue-800  text-lg" :href="route('groups.index')" :active="request()->routeIs('groups.index')">
                         Groepen
                     </x-nav-link>
                 </div>
                 @endcan
                 @can('Manage Users')
                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    <x-nav-link class="text-blue-900 hover:text-blue-800 active:text-blue-800  text-lg" :href="route('users.index')" :active="request()->routeIs('users.index')">
                         Deelnemers
                     </x-nav-link>
                 </div>

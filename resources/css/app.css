@@ -57,3 +57,7 @@
 
 
 .pagination a:hover:not(.active) {background-color: #03357c;color: white;}
+
+.h-16 {
+  height: 6rem;
+}
