@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UsersController;
 use \App\Http\Controllers\MessageController;
+use App\Http\Controllers\GroupProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,10 +29,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('groups', GroupController::class);
+    Route::get('/projects/review/{id}', [ProjectController::class, 'review_show'])->name('projects.review_show');
+    Route::get('/projects/review', [ProjectController::class, 'review'])->name('projects.review');
     Route::resource('projects', ProjectController::class);
+
+    Route::resource('groups', GroupController::class);
     Route::resource('customers', CustomerController::class);
     Route::resource('users', UsersController::class);
+    Route::resource('group-projects', GroupProjectController::class);
 
     Route::resource('messages', MessageController::class);
 

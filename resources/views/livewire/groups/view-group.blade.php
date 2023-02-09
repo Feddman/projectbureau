@@ -99,7 +99,17 @@
                     @empty
                         <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">Geen projecten</li>
                     @endforelse
+
                 </div>
+                {{-- delete groep --}}
+                <form action="{{ route('groups.destroy', $group->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    @if( auth()->user()->id == $group->creator_id || auth()->user()->hasRole('admin'))
+                        <button type="submit" class="button1">Verwijder groep
+                        </button> </h3>
+                    @endif
+                    </form>
             </div>
         </div>
     </div>
