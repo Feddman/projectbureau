@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
+use App\Models\GroupProject;
 use App\Models\User;
+use App\Models\GroupUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class UsersController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +65,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::all()->first();
+        return view('users.edit',[
+            'user' => $user
+        ]);
     }
 
     /**
@@ -70,9 +78,23 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required'
+        ]);
+
+        $url = URL::current();
+        $parts = Explode('/', $url);
+        $id = $parts[count($parts) - 1];
+
+        $user = User::all()->where('id', $id)->first();
+
+        $user->name =  $request->input('name');
+        $user->email =  $request->input('email');
+        $user->save();
+        return redirect('users');
     }
 
     /**
@@ -81,8 +103,28 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $url = URL::current();
+        $parts = Explode('/', $url);
+        $id = $parts[count($parts) - 1];
+
+        $getgroup = Group::all()->where('creator_id', $id);
+        foreach($getgroup as $group){
+            $group_project = GroupProject::where('group_id', $group->id);
+            $group_project->delete();
+        }        
+
+
+        $groupuser = GroupUser::where('user_id', $id);
+        $groupuser->delete();
+        
+
+        $group = Group::where('creator_id', $id);
+        $group->delete();
+
+        $user = User::where('id', $id);
+        $user->delete();
+        return redirect('users');
     }
 }
