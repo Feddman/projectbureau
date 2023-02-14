@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700" aria-label="Breadcrumb">
+    <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
                 <p>Projectbureau</p>
@@ -608,6 +608,7 @@
                         Je gaat dan contact opnemen met de opdrachtgever. Hier stel jezelf voor als kandidaat voor de gekozen project.  Dit kan dan via email of telefoon gedaan worden.<a href="">here</a>
                         </div>
                         </div>
+
                     </div>
                     
                     <!-- <div class="container-3">
@@ -648,7 +649,7 @@
             </script>
 
             </div>
-            <a href=""><button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 h-12">Ga naar Projecten</button></a>
+            <a href=""><button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 h-12">Ga naar Projecten</button></a>
         </div>
 
     
