@@ -1,7 +1,8 @@
 <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-  
+
     <span class="flex justify-between">
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><a href="{{route('groups.show', $group)}}">{{ $group->name }} </a></h3>
+        @auth
         @if(isset($archived) && !$archived)
             <form action="{{route('group-projects.destroy', $group->pivot->id)}}" method="POST">
                 @csrf
@@ -16,7 +17,8 @@
                 <input type="submit" value="Koppel groep opnieuw" class="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             </form>
         @endif
-        
+        @endauth
+
 
     </span>
     <small><i>gemaakt op {{Date('d-m-Y', strtotime($group->created_at))}}</i></small>
