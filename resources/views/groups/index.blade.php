@@ -22,6 +22,8 @@
                                 <p>nog geen projecten</p>
                             @endforelse
                         </div>
+                        {{-- pagination  --}}
+                        <div class="pagination">{{ $groups->links() }}</div>
                     </div>
                 </div>
             </div>

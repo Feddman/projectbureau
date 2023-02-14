@@ -22,6 +22,11 @@
                         Projecten
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('projects.review')" :active="request()->routeIs('projects.review')">
+                        Projecten in review
+                    </x-nav-link>
+                </div>
                 @can('Manage Groups')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">

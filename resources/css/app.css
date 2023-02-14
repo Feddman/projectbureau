@@ -2,3 +2,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.button1 {
+    background-color: #DC143C !important;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .button1:hover {opacity: 1}
+
+  .button-delete {
+    background-color: #DC143C !important;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 2px 2px;
+    font-size: 5px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .button-delete:hover {opacity: 1}
+
+.pagination{
+  margin-right: 449px;
+  margin-top: 20px;
+}
+
+
+.pagination span span span  {
+  background-color: #03357c;
+  color: white;
+}
+
+.pagination p span {
+  background-color: white;
+  color: black;
+}
+
+
+.pagination a:hover:not(.active) {background-color: #03357c;color: white;}
