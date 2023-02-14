@@ -2,6 +2,7 @@
 
     <span class="flex justify-between">
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><a href="{{route('groups.show', $group)}}">{{ $group->name }} </a></h3>
+<<<<<<< HEAD
         @auth
         @if(isset($archived) && !$archived)
             <form action="{{route('group-projects.destroy', $group->pivot->id)}}" method="POST">
@@ -16,6 +17,23 @@
                 <input type="hidden" name="project_id" value="{{$group->pivot->project_id}}">
                 <input type="submit" value="Koppel groep opnieuw" class="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             </form>
+=======
+        @if(auth()->user()->hasRole('admin'))
+            @if(isset($archived) && !$archived)
+                <form action="{{route('group-projects.destroy', $group->pivot->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Ontkoppel groep" class="bg-red-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                </form>
+            @elseif(isset($archived) && $archived)
+                <form action="{{route('group-projects.update', $group->pivot->id)}}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="project_id" value="{{$group->pivot->project_id}}">
+                    <input type="submit" value="Koppel groep opnieuw" class="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                </form>
+            @endif
+>>>>>>> 8e3a9ec0595deb5e55729edfd66aa1014f2b4ac0
         @endif
         @endauth
 
@@ -48,7 +66,6 @@
                 <p>Nog geen teamleden in dit team</p>
             @endforelse
         </ul>
-    </p>
     @if( auth()->user()->id == $group->creator_id || auth()->user()->hasRole('admin'))
         @if($withProjects)
             @livewire('projects.links', ['group' => $group, 'project' => $project])

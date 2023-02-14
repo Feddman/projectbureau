@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
-use App\Models\GroupProject;
-use App\Models\GroupUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -12,7 +10,7 @@ class GroupController extends Controller
 {
 
     public function __construct() {
-        $this->middleware(['role:admin'])->except(['index', 'show']);
+        $this->middleware(['role:admin'])->except(['index', 'show','edit','update']);
     }
 
     /**
@@ -53,11 +51,15 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show(Group $group, Request $request)
     {
-        return view('groups.show', [
-            'group' => $group
-        ]);
+        $url = URL::previous();
+        $parts = Explode('/', $url);
+        $urlpart = $parts[count($parts) - 1];
+
+        $request->session()->put('urlpart', $urlpart);
+
+        return view('groups.show', ['group' => $group]);
     }
 
     /**
@@ -88,32 +90,11 @@ class GroupController extends Controller
             'name' => $request->name,
         ]);
 
-        return back();
+        $urlpart = $request->session()->get('urlpart');
+
+        return redirect($urlpart);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Group  $group
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Group $group)
-    {
-        $url = URL::current();
-        $parts = Explode('/', $url);
-        $id = $parts[count($parts) - 1];
-
-
-        $groupproject = GroupProject::where('group_id', $id);
-        $groupproject->delete();
-
-        $groupuser = GroupUser::where('group_id', $id);
-        $groupuser->delete();
-
-        $group = Group::where('id', $id);
-        $group->delete();
-        return redirect('dashboard');
-    }
 
 
 }

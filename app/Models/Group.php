@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $table = 'groups';
+    protected $dates = ['deleted_at'];
     protected $guarded = [];
 
     public function projects() {
@@ -23,5 +25,7 @@ class Group extends Model
         $this->belongsTo(User::class,'creator_id');
     }
 
-
+    public function messages() {
+        return $this->hasMany(Message::class)->orderBy('created_at', 'desc');
+    }
 }

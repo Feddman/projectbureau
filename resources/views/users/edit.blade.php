@@ -1,13 +1,7 @@
-@if( auth()->user()->id == $group->creator_id || auth()->user()->hasRole('admin'))
-
-@else
-    <script>window.location = "/dashboard";</script>
-@endif
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Groep wijzigen: {{ $group->name }}
+            Gebruiker Bewerken: {{ $user->name }}
         </h2>
     </x-slot>
 
@@ -23,13 +17,22 @@
                 @endif
                 <div class="flex p-6 justify-center text-gray-900">
                     {{-- make project form --}}
-                    <form  class="md:w-1/2" action="{{ route('groups.update', $group) }}" method="POST" enctype="multipart/form-data">
+                    <form  class="md:w-1/2" action="{{ route('users.update', $user) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="mb-4">
-                            <label for="name">Naam groep</label>
-                            <input type="text" name="name" id="name"  class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror" value="{{ $group->name }}">
+                            <label for="name">Naam gebruiker</label>
+                            <input type="text" name="name" id="name"  class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror" value="{{ $user->name }}">
                             @error('name')
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="email">Email gebruiker</label>
+                            <input type="text" name="email" id="email"  class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{ $user->email }}">
+                            @error('email')
                                 <div class="text-red-500 mt-2 text-sm">
                                     {{ $message }}
                                 </div>
@@ -37,10 +40,11 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Groep wijzigen</button>
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Gebruiker wijzigen</button>
                         </div>
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+x   
