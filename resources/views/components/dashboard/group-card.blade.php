@@ -1,4 +1,4 @@
-<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+<div class="max-w-sm p-6 bg-gradient-to-r from-lime-500 to-lime-500 border border-gray-200 rounded-lg shadow-md">
   
     <span class="flex justify-between">
         <h3 class="mb-2 text-2xl font-bold tracking-tight text-blue-900"><a href="{{route('groups.show', $group)}}">{{ $group->name }} </a></h3>

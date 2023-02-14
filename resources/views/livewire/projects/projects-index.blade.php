@@ -1,9 +1,14 @@
+<style>
+.ml-2.text-sm.font-medium.text-gray-900 {
+  color: #84cc16;
+}
+</style>
 <div class="">
 	<div class="p-4 flex justify-between items-center content-start">
-		<h2 class="my-2 border-bottom-2 text-2xl"> Lopende projecten </h2>
+		<h2 class="text-lime-500 my-2 border-bottom-2 text-2xl"> Lopende projecten </h2>
 
 		<div class="flex">
-			<x-checkbox id="frontend" value="Frontend" name="filterTags[]" wire:model="filterTags">
+			<x-checkbox  id="frontend" value="Frontend" name="filterTags[]" wire:model="filterTags">
 				Frontend
 			</x-checkbox>
 			<x-checkbox id="backend" value="Backend" name="filterTags[]" wire:model="filterTags">
