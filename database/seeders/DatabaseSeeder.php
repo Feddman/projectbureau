@@ -68,7 +68,8 @@ class DatabaseSeeder extends Seeder
                 Permission::create(['name' => 'Manage Users']),
                 Permission::create(['name' => 'Manage Projects']),
                 Permission::create(['name' => 'Manage Groups']),
-                Permission::create(['name' => 'Manage Customers'])
+                Permission::create(['name' => 'Manage Customers']),
+                Permission::create(['name' => 'Send Messages'])
             ]);
         }
 
@@ -86,6 +87,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Group::factory(30)->create();
         \App\Models\GroupUser::factory(30)->create();
         \App\Models\GroupProject::factory(30)->create();
+        \App\Models\Message::factory(50)->create();
 
     }
 }
