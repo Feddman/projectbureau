@@ -22,6 +22,11 @@
                         Projecten
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('projects.review')" :active="request()->routeIs('projects.review')">
+                        Projecten in review
+                    </x-nav-link>
+                </div>
                 @can('Manage Groups')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">
@@ -30,9 +35,16 @@
                 </div>
                 @endcan
                 @can('Manage Users')
-                   <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         Deelnemers
+                    </x-nav-link>
+                </div>
+                @endcan
+                @can('Send Messages')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('messages.index')" :active="request()->routeIs('messages.index')">
+                        Berichten
                     </x-nav-link>
                 </div>
                 @endcan
@@ -41,6 +53,16 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+
+                <a href="{{route('messages.index')}}" type="button" class="inline-flex items-center text-sm font-medium text-center text-gray-500 hover:text-gray-900 focus:outline-none">
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+	                {{-- Block of code below is for an indicator when the user has unread messages. --}}
+
+	                {{-- <div class="relative flex"> --}}
+	                {{-- <div class="relative inline-flex w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-2 right-3"></div> --}}
+	                {{-- </div> --}}
+                </a>
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -103,6 +125,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('messages.index')">
+                    {{ __('Notifications') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

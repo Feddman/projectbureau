@@ -23,5 +23,7 @@ class Group extends Model
         $this->belongsTo(User::class,'creator_id');
     }
 
-
+    public function messages() {
+        return $this->hasMany(Message::class)->orderBy('created_at', 'desc');
+    }
 }

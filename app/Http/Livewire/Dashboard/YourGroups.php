@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Dashboard;
 use App\Models\User;
 
 use Livewire\Component;
+use Str;
 
 class YourGroups extends Component
 {
@@ -20,7 +21,7 @@ class YourGroups extends Component
 
         $group = auth()->user()->groups()->create([
             'name' => $this->newGroup,
-            'invitation_token' => \Str::random(10),
+            'invitation_token' => Str::random(10),
             'creator_id' => auth()->user()->id,
         ]);
 
