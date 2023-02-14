@@ -9,7 +9,6 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Tags\Tag;
-use Illuminate\Support\Facades\Hash;
 
 
 class DatabaseSeeder extends Seeder
@@ -78,8 +77,7 @@ class DatabaseSeeder extends Seeder
 
         $admin = \App\Models\User::factory()->create([
             'name' => 'Admin',
-            'email' => 'D284132@edu.curio.nl',
-            'password' => Hash::make('123admin'),
+            'email' => 'test@example.com',
         ]);
         $admin->assignRole('admin');
 
