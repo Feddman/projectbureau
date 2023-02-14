@@ -66,9 +66,9 @@
                                 <td>
                                     {{-- check if logged in user is in this group --}}
                                     @if(Auth::user()->id == $group->creator_id)
-                                        <div class="flex items">
+                                        <div class="flex items-center">
                                             {{-- delete button --}}
-                                            <button wire:click="deleteUser({{$user->id}})" type="button" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Verwijderen</button>
+                                            <button wire:click="deleteUser({{$user->id}})" type="button" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5  focus:outline-none">Verwijderen</button>
                                         </div>
                                     @endif
                                 </td>
@@ -82,6 +82,16 @@
                             <x-dashboard.project-card :withProjects=true :group="$group" :project="$project" />
                     @endforeach
                 </div>
+
+                {{-- delete groep --}}
+
+                    @if( auth()->user()->id == $group->creator_id || auth()->user()->hasRole('admin'))
+                        <div class="flex justify-end">
+                            <button class=" text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none" wire:click="deleteGroup({{$group->id}})" type="submit" >Verwijder groep</button> 
+                        </div>
+                    @endif
+                    </h3>
+
             </div>
         </div>
     </div>
