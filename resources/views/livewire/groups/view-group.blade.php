@@ -1,6 +1,6 @@
-<div>
+<div >
     {{-- list users from group --}}
-    <div class="flex flex-col">
+    <div class=" flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 {{-- add message --}}
@@ -12,14 +12,14 @@
                 @endif
                 <div class="flex justify-between">
 
-                    <h3 class="text-2xl font-bold my-2">Leden</h3>
+                    <h3 class="text-2xl text-yellow-300 font-bold my-2">Leden</h3>
                     {{-- add button --}}
                     <div class="flex justify-end">
                         <div>
                             @if(Auth::user()->id == $group->creator_id)
                                 <div class="flex py-4">
-                                    <input wire:model="userSearch" placeholder="student email" type="email" name="floating_email" id="floating_email" class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                                    <button wire:click="addUser" type="button" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 mr-2 mb-2 focus:outline-none">Lid toevoegen</button>
+                                    <input wire:model="userSearch" placeholder="student email" type="email" name="floating_email" id="floating_email" class="block px-0 w-full text-sm text-yellow-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                    <button wire:click="addUser" type="button" class="text-blue-800 bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:ring-yellow-400 font-medium rounded-lg text-sm px-5 mr-2 mb-2 focus:outline-none">Lid toevoegen</button>
                                 </div>
                             @endif
                             {{--message  --}}
@@ -36,21 +36,21 @@
 
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-blue-900">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-yellow-300 uppercase tracking-wider">
                                 Naam
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-yellow-300 uppercase tracking-wider">
                                 Email
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-yellow-300 uppercase tracking-wider">
                                 Acties
                             </th>
 
                         </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-blue-900 divide-y divide-gray-200">
                         @foreach ($group->users as $user)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">

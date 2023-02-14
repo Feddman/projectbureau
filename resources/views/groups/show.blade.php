@@ -1,6 +1,17 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+<style>
+.background{
+    background-color: #101074;
+    border-color: #101074;
+    border-radius: 1px;
+}
+.min-h-screen.bg-gray-100 {
+  background: #101074;
+}
+</style>
+<header class="background shadow">
+    <div class=" max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h2 class="font-semibold text-xl  text-yellow-300 leading-tight">
 
             Groep: {{ $group->name }} 
             {{-- filter om alleen de groep eigenaar en de admin de groep naam kunnen wijzigen  --}}
@@ -11,12 +22,13 @@
             </a>
             @endif
         </h2>
-    </x-slot>
+    </div>
+</header>
 
-    <div class="py-12">
+    <div class="background py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+            <div class="bg-blue-900 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-yellow-300">
                     @livewire('groups.view-group', ['group' => $group])
                 </div>
             </div>
