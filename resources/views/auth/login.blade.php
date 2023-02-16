@@ -1,3 +1,37 @@
+<style>
+
+.min-h-screen.flex.flex-col.sm\:justify-center.items-center.pt-6.sm\:pt-0.bg-gray-100 {
+  background: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+img {
+ 
+  height: 200px !important;
+  width: 100% !important;
+  margin-bottom: 40px;
+}
+
+.w-full.sm\:max-w-md.mt-6.px-6.py-4.bg-white.shadow-md.overflow-hidden.sm\:rounded-lg {
+  background: rgb(30 58 138 / var(--tw-bg-opacity));
+}
+
+.block.font-medium.text-sm.text-gray-700 {
+  color: #84cc16;
+}
+
+.ml-2.text-sm.text-gray-600 {
+  color: #84cc16;
+}
+
+.underline.text-sm.text-gray-600.hover\:text-gray-900.rounded-md.focus\:outline-none.focus\:ring-2.focus\:ring-offset-2.focus\:ring-indigo-500 {
+  color: #84cc16;
+}
+
+.inline-flex.items-center.px-4.py-2.bg-blue-700.border.border-transparent.rounded-md.font-semibold.text-xs.text-yellow-400.uppercase.tracking-widest.hover\:bg-blue-600.focus\:bg-blue-700.active\:bg-blue-800.focus\:outline-none.focus\:ring-2.focus\:ring-indigo-500.focus\:ring-offset-2.transition.ease-in-out.duration-150.ml-3 {
+  background: #84cc16;
+  color: #1e3a8a;
+}
+
+    </style>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
