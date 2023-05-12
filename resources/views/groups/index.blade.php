@@ -19,7 +19,7 @@
                             @forelse($groups as $group)
                                 <x-dashboard.group-card :group="$group" :with-projects=false/>
                             @empty
-                                <p>nog geen projecten</p>
+                                <p>nog geen groepen</p>
                             @endforelse
                         </div>
                     </div>

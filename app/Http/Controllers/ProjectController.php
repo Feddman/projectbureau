@@ -15,7 +15,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        if(!empty(request()->get('s'))){
+            $projects = Project::where('name', 'LIKE', '%' . request()->get('s') . '%')->get();
+        } else {
+            $projects = Project::all();
+        }
         return view('projects.index', compact('projects'));
     }
 

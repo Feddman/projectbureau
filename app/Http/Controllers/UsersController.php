@@ -14,7 +14,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        if(!empty(request()->get('s'))){
+            $users = User::where('name', 'LIKE', '%' . request()->get('s') . '%')->get();
+        } else {
+            $users = User::all();
+        }
         return view('users.index',[
             'users' => $users
         ]);
